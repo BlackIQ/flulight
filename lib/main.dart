@@ -26,28 +26,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var isOn = false;
-  var imageLink = '';
-
-  void bgImage() {
-    if (isOn) {
-      setState(() {
-        // imageLink = "https://wallpapercave.com/wp/fY89wT0.jpg";
-        // imageLink = "https://wallpapercave.com/wp/wp1910047.jpg";
-        imageLink = "https://wallpapercave.com/wp/wp4186712.jpg";
-        // imageLink = "https://wallpapercave.com/wp/wp3155834.jpg";
-      });
-    }
-    else {
-      setState(() {
-        // imageLink = "https://wallpapercave.com/wp/NddQhSb.jpg";
-        imageLink = "https://wallpapercave.com/wp/wp4186729.jpg";
-      });
-    }
-  }
+  var imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
 
   @override
   Widget build(BuildContext context) {
-    bgImage();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -74,8 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
           value: isOn,
           onChanged: (value) {
             setState(() {
-              isOn = !isOn;
-              isOn ? Flashlight.lightOn() : Flashlight.lightOff();
+              if (isOn) {
+                isOn = !isOn;
+                imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
+                Flashlight.lightOff();
+              }
+              else {
+                isOn = !isOn;
+                imageLink = 'https://wallpapercave.com/wp/wp4186712.jpg';
+                Flashlight.lightOn();
+              }
             });
           },
         ),
