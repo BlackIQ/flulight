@@ -31,12 +31,16 @@ class _MyHomePageState extends State<MyHomePage> {
   void bgImage() {
     if (isOn) {
       setState(() {
-        imageLink = "https://wallpapercave.com/wp/fY89wT0.jpg";
+        // imageLink = "https://wallpapercave.com/wp/fY89wT0.jpg";
+        // imageLink = "https://wallpapercave.com/wp/wp1910047.jpg";
+        imageLink = "https://wallpapercave.com/wp/wp4186712.jpg";
+        // imageLink = "https://wallpapercave.com/wp/wp3155834.jpg";
       });
     }
     else {
       setState(() {
-        imageLink = "https://wallpapercave.com/wp/NddQhSb.jpg";
+        // imageLink = "https://wallpapercave.com/wp/NddQhSb.jpg";
+        imageLink = "https://wallpapercave.com/wp/wp4186729.jpg";
       });
     }
   }
@@ -45,12 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     bgImage();
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Flulight',
+        ),
+        // backgroundColor: ,
+      ),
       body: _buildApp(),
     );
   }
 
   Widget _buildApp() {
     return Container(
+      width: double.infinity,
+      height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: NetworkImage(imageLink),
