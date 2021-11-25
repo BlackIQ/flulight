@@ -31,12 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Flulight',
-        ),
-        // backgroundColor: ,
-      ),
       body: _buildApp(),
     );
   }
@@ -51,23 +45,33 @@ class _MyHomePageState extends State<MyHomePage> {
           fit: BoxFit.cover,
         ),
       ),
-      child: Center(
-        child: Switch(
-          value: isOn,
-          onChanged: (value) {
-            setState(() {
-              if (isOn) {
-                isOn = !isOn;
-                imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
-                Flashlight.lightOff();
-              }
-              else {
-                isOn = !isOn;
-                imageLink = 'https://wallpapercave.com/wp/wp4186712.jpg';
-                Flashlight.lightOn();
-              }
-            });
-          },
+      child: Padding(
+        padding: EdgeInsets.all(50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Transform.scale(
+              scale: 3,
+              child: Switch(
+                value: isOn,
+                activeColor: Colors.yellow,
+                onChanged: (value) {
+                  setState(() {
+                    if (isOn) {
+                      isOn = !isOn;
+                      imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
+                      Flashlight.lightOff();
+                    }
+                    else {
+                      isOn = !isOn;
+                      imageLink = 'https://wallpapercave.com/wp/wp4186712.jpg';
+                      Flashlight.lightOn();
+                    }
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
