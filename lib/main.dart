@@ -71,6 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ),
+            SizedBox(height: 30),
+            Text(
+              'Flulight',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 25,
+              ),
+            ),
+            Text(
+              'Simple flashlight controller',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
           ],
         ),
       ),
