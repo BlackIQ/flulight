@@ -87,6 +87,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 20,
               ),
             ),
+            Divider(color: Colors.white),
+            Text(
+              'flulight.blackiq.ir',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
           ],
         ),
       ),
