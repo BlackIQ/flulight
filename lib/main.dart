@@ -26,32 +26,47 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var isOn = false;
+  var imageLink = '';
+
+  void bgImage() {
+    if (isOn) {
+      setState(() {
+        imageLink = "https://wallpapercave.com/wp/fY89wT0.jpg";
+      });
+    }
+    else {
+      setState(() {
+        imageLink = "https://wallpapercave.com/wp/NddQhSb.jpg";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    bgImage();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          // 'Flulight',
-          isOn.toString(),
-          style: GoogleFonts.raleway(),
-        ),
-      ),
       body: _buildApp(),
     );
   }
 
   Widget _buildApp() {
-    return Center(
-      child: Switch(
-        value: isOn,
-        onChanged: (value) {
-          setState(() {
-            isOn = !isOn;
-            isOn ? Flashlight.lightOn() : Flashlight.lightOff();
-          });
-        },
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(imageLink),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Switch(
+          value: isOn,
+          onChanged: (value) {
+            setState(() {
+              isOn = !isOn;
+              isOn ? Flashlight.lightOn() : Flashlight.lightOff();
+            });
+          },
+        ),
       ),
     );
   }
