@@ -26,25 +26,125 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var isOn = false;
-  var imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
+  var showStatus = 'Light is off';
+
+  void toggle() {
+    if (isOn) {
+      setState(() {
+        showStatus = 'Light is off';
+        isOn = false;
+      });
+      Flashlight.lightOn();
+    } else {
+      setState(() {
+        showStatus = 'Light is on';
+        isOn = true;
+      });
+      Flashlight.lightOff();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildApp(),
+      body: _new(),
+    );
+  }
+
+  Widget _new() {
+    return Container(
+      color: Colors.blueGrey,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    '$showStatus',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: 50),
+                  Container(
+                    decoration: isOn
+                        ? BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(0, 175, 161, 1),
+                                Color.fromRGBO(102, 208, 255, 1),
+                              ],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.blue.withOpacity(0.9),
+                                spreadRadius: 4,
+                                blurRadius: 10,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          )
+                        : BoxDecoration(
+                            color: Colors.lightBlue,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50),
+                            ),
+                          ),
+                    child: FlatButton(
+                      child: Icon(
+                        Icons.power_settings_new,
+                        color: Colors.white,
+                        size: 35,
+                      ),
+                      onPressed: toggle,
+                    ),
+                    height: 90,
+                    width: 90,
+                  ),
+                  SizedBox(height: 50),
+                  Text(
+                    'Flulight',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                  ),
+                  Text(
+                    'Simple flashlight controller',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: 25),
+                  Text(
+                    'flulight.blackiq.ir',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _buildApp() {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(imageLink),
-          fit: BoxFit.cover,
-        ),
-      ),
       child: Padding(
         padding: EdgeInsets.all(50),
         child: Column(
@@ -59,40 +159,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     if (isOn) {
                       isOn = !isOn;
-                      imageLink = 'https://wallpapercave.com/wp/wp4186729.jpg';
                       Flashlight.lightOff();
-                    }
-                    else {
+                    } else {
                       isOn = !isOn;
-                      imageLink = 'https://wallpapercave.com/wp/wp4186712.jpg';
                       Flashlight.lightOn();
                     }
                   });
                 },
-              ),
-            ),
-            SizedBox(height: 30),
-            Text(
-              'Flulight',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 25,
-              ),
-            ),
-            Text(
-              'Simple flashlight controller',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            ),
-            Divider(color: Colors.white),
-            Text(
-              'flulight.blackiq.ir',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
               ),
             ),
           ],
