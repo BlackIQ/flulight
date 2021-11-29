@@ -71,6 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(height: 50),
                   GestureDetector(
+                    onTap: () {
+                      toggle();
+                    },
                     child: Container(
                       decoration: isOn
                           ? BoxDecoration(
