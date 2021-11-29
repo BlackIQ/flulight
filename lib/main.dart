@@ -99,13 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               Radius.circular(50),
                             ),
                           ),
-                    child: FlatButton(
+                    child: GestureDetector(
                       child: Icon(
                         Icons.power_settings_new,
                         color: Colors.white,
                         size: 35,
                       ),
-                      onPressed: toggle,
+                      onTap: toggle,
                     ),
                     height: 90,
                     width: 90,
