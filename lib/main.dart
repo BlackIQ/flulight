@@ -34,13 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
         showStatus = 'Light is off';
         isOn = false;
       });
-      Flashlight.lightOn();
+      Flashlight.lightOff();
     } else {
       setState(() {
         showStatus = 'Light is on';
         isOn = true;
       });
-      Flashlight.lightOff();
+      Flashlight.lightOn();
     }
   }
 
@@ -71,9 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(height: 50),
                   GestureDetector(
-                    onTap: () {
-                      toggle();
-                    },
+                    onTap: toggle,
                     child: Container(
                       decoration: isOn
                           ? BoxDecoration(
@@ -93,7 +91,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                   color: Colors.blue.withOpacity(0.9),
                                   spreadRadius: 4,
                                   blurRadius: 10,
-                                  offset: Offset(0, 3),
                                 ),
                               ],
                             )
