@@ -70,45 +70,44 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   SizedBox(height: 50),
-                  Container(
-                    decoration: isOn
-                        ? BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromRGBO(0, 175, 161, 1),
-                                Color.fromRGBO(102, 208, 255, 1),
-                              ],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(50),
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.blue.withOpacity(0.9),
-                                spreadRadius: 4,
-                                blurRadius: 10,
-                                offset: Offset(0, 3),
+                  GestureDetector(
+                    child: Container(
+                      decoration: isOn
+                          ? BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromRGBO(0, 175, 161, 1),
+                                  Color.fromRGBO(102, 208, 255, 1),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
                               ),
-                            ],
-                          )
-                        : BoxDecoration(
-                            color: Colors.lightBlue,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(50),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(50),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.blue.withOpacity(0.9),
+                                  spreadRadius: 4,
+                                  blurRadius: 10,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                            )
+                          : BoxDecoration(
+                              color: Colors.lightBlue,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(50),
+                              ),
                             ),
-                          ),
-                    child: GestureDetector(
                       child: Icon(
                         Icons.power_settings_new,
                         color: Colors.white,
                         size: 35,
                       ),
-                      onTap: toggle,
+                      height: 90,
+                      width: 90,
                     ),
-                    height: 90,
-                    width: 90,
                   ),
                   SizedBox(height: 50),
                   Text(
