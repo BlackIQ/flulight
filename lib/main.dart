@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Text(
-                    'Simple flashlight controller',
+                    'Flutter flashlight controller',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
