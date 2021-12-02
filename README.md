@@ -1,4 +1,4 @@
-# FluLator
+# Flulight
 
 Flutter flashlight.
 
