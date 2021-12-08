@@ -1,24 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
 
-* {
-  font-family: "Raleway", sans-serif;
-}
-
+/* Common stuff */
 .main {
-  background: white;
+  font-family: 'Raleway', sans-serif;
   color: #00266e;
   padding: 3%;
 }
 
-.imgbox {
-  height: 50%;
-  width: 50%;
-}
-
-.r10 {
-  border-radius: 10px;
-}
-
 .right {
   float: right;
+}
+
+.preversion {
+  border: solid 1px grey;
+}
+
+.lastversion {
+  border: solid 1px #00266e;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: navy;
+}
+
+/* Images scroll */
+
+.images {
+  overflow: auto;
+  white-space: nowrap;
+}
+.image {
+  height: 15%;
+  width: 15%;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+/* Versions scroll */
+
+.versions {
+  overflow: auto;
+  white-space: nowrap;
+}
+.version {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 5px;
+}
+.version .date {
+  font-size: 15px;
+}
+.version .lastest {
+  color: red;
 }
